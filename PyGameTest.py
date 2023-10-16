@@ -17,7 +17,7 @@ FPS = 60
 clock = pygame.time.Clock()
 
 # Установка параметров экрана
-screen = pygame.display.set_mode((WIDTH,HEIGHT))
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Test')
 
 # Проверка процесса игры
