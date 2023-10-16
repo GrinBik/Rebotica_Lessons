@@ -32,6 +32,13 @@ ingridients = set(ingridients)
 print('Получившееся множество ингридиентов бутерброда:')
 print(f'{ingridients}\n')
 
+# Создание нового множества
+ingridients_new = {1, 2, 3, 4, 5}
+
+# Вывод на экран второго множества
+print('Тестовое множество:')
+print(f'{ingridients_new}\n')
+
 # Добавление нового ингридиента во множество
 ingridients.add("кетчуп")
 
