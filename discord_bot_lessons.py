@@ -206,7 +206,7 @@ async def check_db(message, user_id, member):
             # Сколько времени прошло с момента блокировки
             time_difference = cur_date - datetime.datetime.strptime(line[3], '%Y-%m-%d %H:%M:%S.%f')
             # if time_difference.days > 3:
-            # Если время блокировки достигро ограничений, меняем права пользователю
+            # Если время блокировки достигло ограничений, меняем права пользователю
             if time_difference.seconds > 15:
                 # Меняем запись в БД, обнуляем счетчик предупреждений запрещенных слов
                 cursor.execute(
