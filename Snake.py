@@ -1,10 +1,11 @@
-import random, pygame
+import random
+import pygame
 from os import path
-
 
 # Инициализация встроенных инструментов font и mixer
 pygame.font.init()
 pygame.mixer.init()
+
 
 # Создание еды для змейки
 def create_food():
@@ -15,6 +16,7 @@ def create_food():
     food.set_colorkey(WHITE)
     food_rect = food.get_rect(x=food_x, y=food_y)
 
+
 # Функция проверки поедания еды змейкой
 def sneak_eat_food(sneak_place_x, sneak_place_y, food_cor_x, food_cor_y):
     if food_cor_x - snake_block <= sneak_place_x <= food_cor_x + snake_block:
@@ -23,6 +25,7 @@ def sneak_eat_food(sneak_place_x, sneak_place_y, food_cor_x, food_cor_y):
             return True
     else:
         return False
+
 
 # Вывод текста на игровое поле
 def screen_message():
@@ -39,12 +42,14 @@ def screen_message():
     restart_place = restart_message.get_rect(center=(screen_width / 2, screen_height - 100))
     screen.blit(restart_message, restart_place)
 
+
 def snake_draw(i, snake_body):
     snake_img = snake_head_img[i]
     snake_head = pygame.transform.scale(snake_img, (snake_block, snake_block))
     snake_head.set_colorkey(WHITE)
     snake_head_rect = snake_head.get_rect(x=snake_body[-1][0], y=snake_body[-1][1])
     screen.blit(snake_head, snake_head_rect)
+
 
 # Размеры игрового окна
 screen_width = 600
@@ -54,7 +59,7 @@ screen_height = 750
 pygame.display.set_caption("Змейка")
 
 # Создаем экран по заданным размерам
-screen = pygame.display.set_mode((screen_width,screen_height))
+screen = pygame.display.set_mode((screen_width, screen_height))
 
 # Цвета, используемые в игре
 GREEN = (0, 102, 51)
@@ -62,7 +67,7 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
-BRIGHT_TURQUOISE = (0,255,204)
+BRIGHT_TURQUOISE = (0, 255, 204)
 
 # Параметры FPS и объект clock для реализации
 FPS = 60
@@ -93,7 +98,7 @@ sneak_length = 1
 food_x = 0
 food_y = 0
 
-# Счет - сколько еды удалось сьесть
+# Счет - сколько еды удалось съесть
 score = 0
 
 # Проверка game over
@@ -103,7 +108,7 @@ game_over = False
 music_dir = path.join(path.dirname(__file__), 'music')
 
 # Директория изображений
-img_dir = path.join(path.dirname(__file__), 'img')
+img_dir = path.join(path.dirname(__file__), 'photo')
 
 # Установка фоновой картинки
 bg_img = pygame.image.load(path.join(img_dir, 'snake_fon.jpg')).convert()
@@ -136,12 +141,12 @@ wall_music.set_volume(0.5)
 
 # Картинки головы в 4-е стороны
 snake_head_img = [pygame.image.load(path.join(img_dir, "snake_head_up.jpg")).convert(),
-            pygame.image.load(path.join(img_dir, "snake_head_down.jpg")).convert(),
-            pygame.image.load(path.join(img_dir, "snake_head_left.jpg")).convert(),
-            pygame.image.load(path.join(img_dir, "snake_head_right.jpg")).convert()]
+                  pygame.image.load(path.join(img_dir, "snake_head_down.jpg")).convert(),
+                  pygame.image.load(path.join(img_dir, "snake_head_left.jpg")).convert(),
+                  pygame.image.load(path.join(img_dir, "snake_head_right.jpg")).convert()]
 
 snake_body_img = [pygame.image.load(path.join(img_dir, "snake_body_up_down.jpg")).convert(),
-            pygame.image.load(path.join(img_dir, "snake_body_left_right.jpg")).convert()]
+                  pygame.image.load(path.join(img_dir, "snake_body_left_right.jpg")).convert()]
 
 # Переменная для контроля правильности отрисовки головы
 snake_head_control = 0
